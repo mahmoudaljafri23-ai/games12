@@ -16,14 +16,13 @@ workflows:
           rm -rf Flutter/ephemeral/Packages
           pod deintegrate || true
           pod install --repo-update
-      - name: Build iOS App and package .ipa
+      - name: Build iOS App and package Runner.ipa
         script: |
           flutter build ipa --release --no-codesign
           cd build/ios/archive/Runner.xcarchive/Products/Applications
-          mkdir Payload
+          mkdir -p Payload
           cp -r Runner.app Payload/
-          zip -r ../../../../../Runner.ipa Payload
+          zip -r $CM_BUILD_DIR/Runner.ipa Payload
     artifacts:
-      - "*.ipa"
-      - build/ios/ipa/*.ipa
       - Runner.ipa
+      - "*.ipa"

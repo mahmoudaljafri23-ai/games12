@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "242755232702",
+    "project_id": "voicedeceptiongame",
+    "storage_bucket": "voicedeceptiongame.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242755232702:android:dd0a31c2ffb68ec2a64fef",
+        "android_client_info": {
+          "package_name": "com.example.projectgoogl"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQV82td7zSpw47E9XtgMbP0vY3kxgdGJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

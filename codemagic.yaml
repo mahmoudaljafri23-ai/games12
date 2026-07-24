@@ -8,11 +8,11 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
-      - name: Disable SPM and prepare CocoaPods
+      - name: Prepare dependencies and sync Pods
         script: |
-          flutter config --no-enable-swift-package-manager
           flutter pub get
           cd ios
+          pod deintegrate || true
           pod install --repo-update
       - name: Build iOS App (.ipa)
         script: |

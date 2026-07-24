@@ -10,6 +10,7 @@ workflows:
     scripts:
       - name: Prepare dependencies and sync CocoaPods
         script: |
+          flutter config --no-enable-swift-package-manager
           flutter pub get
           cd ios
           rm -rf Flutter/ephemeral/Packages
@@ -17,7 +18,7 @@ workflows:
           pod install --repo-update
       - name: Build iOS App (.ipa)
         script: |
-          flutter build ipa --release --no-codesign --no-swift-package-manager
+          flutter build ipa --release --no-codesign
     artifacts:
       - build/ios/ipa/*.ipa
       - build/ios/iphoneos/*.app

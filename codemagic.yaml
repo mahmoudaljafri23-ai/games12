@@ -8,15 +8,16 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
-      - name: Prepare dependencies and sync Pods
+      - name: Prepare dependencies and sync CocoaPods
         script: |
           flutter pub get
           cd ios
+          rm -rf Flutter/ephemeral/Packages
           pod deintegrate || true
           pod install --repo-update
       - name: Build iOS App (.ipa)
         script: |
-          flutter build ipa --release --no-codesign
+          flutter build ipa --release --no-codesign --no-swift-package-manager
     artifacts:
       - build/ios/ipa/*.ipa
       - build/ios/iphoneos/*.app

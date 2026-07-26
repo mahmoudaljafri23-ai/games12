@@ -7,19 +7,31 @@ import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/profile_setup_screen.dart';
 
+import 'dart:async';
+
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  try {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    FirebaseFirestore.instance.settings = const Settings(
-      persistenceEnabled: false,
-    );
-  } catch (e) {
-    debugPrint('Firebase init error: $e');
-  }
-  runApp(const VoiceDeceptionGameApp());
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    FlutterError.onError = (FlutterErrorDetails details) {
+      FlutterError.presentError(details);
+      debugPrint('Caught Flutter Error: ${details.exception}');
+    };
+
+    try {
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+      FirebaseFirestore.instance.settings = const Settings(
+        persistenceEnabled: false,
+      );
+    } catch (e) {
+      debugPrint('Firebase init error: $e');
+    }
+
+    runApp(const VoiceDeceptionGameApp());
+  }, (error, stack) {
+    debugPrint('Uncaught async error: $error\n$stack');
+  });
 }
 
 class VoiceDeceptionGameApp extends StatelessWidget {

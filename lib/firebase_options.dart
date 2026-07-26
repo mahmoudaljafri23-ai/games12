@@ -58,7 +58,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBQV82td7zSpw47E9XtgMbP0vY3kxgdGJA',
-    appId: '1:242755232702:android:dd0a31c2ffb68ec2a64fef',
+    appId: '1:242755232702:android:2c500a0dc97ead3ea64fef',
     messagingSenderId: '242755232702',
     projectId: 'voicedeceptiongame',
     storageBucket: 'voicedeceptiongame.firebasestorage.app',

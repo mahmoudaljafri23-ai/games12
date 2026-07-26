@@ -81,6 +81,81 @@ class _LoginScreenState extends State<LoginScreen> {
         });
       }
     }
+  void _showForgotPasswordDialog() {
+    final TextEditingController resetEmailController = TextEditingController(text: _emailController.text.trim());
+
+    showDialog(
+      context: context,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: const Row(
+            children: [
+              Icon(Icons.lock_reset, color: Colors.amberAccent),
+              SizedBox(width: 8),
+              Text('إعادة تعيين كلمة المرور 🔑'),
+            ],
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('أدخل بريدك الإلكتروني لإرسال رمز ورابط تعيين كلمة المرور الجديدة:'),
+              const SizedBox(height: 12),
+              TextField(
+                controller: resetEmailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  labelText: 'البريد الإلكتروني',
+                  hintText: 'example@email.com',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(dialogContext),
+              child: const Text('إلغاء'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final email = resetEmailController.text.trim();
+                if (email.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('الرجاء كتابة البريد الإلكتروني')),
+                  );
+                  return;
+                }
+
+                Navigator.pop(dialogContext);
+                try {
+                  await _authService.sendPasswordResetEmail(email);
+                  if (mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('✅ تم إرسال رمز ورابط إعادة تعيين كلمة المرور إلى $email بنجاح! تفقد بريدك الإلكتروني.'),
+                        backgroundColor: Colors.green,
+                        duration: const Duration(seconds: 5),
+                      ),
+                    );
+                  }
+                } catch (e) {
+                  if (mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('⚠️ حدث خطأ أثناء إرسال البريد: $e'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
+                }
+              },
+              child: const Text('إرسال الرمز'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -134,7 +209,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 30),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: _showForgotPasswordDialog,
+                  child: const Text(
+                    'نسيت كلمة المرور؟ 🔑',
+                    style: TextStyle(color: Colors.amberAccent, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
               
               // Email Sign In / Sign Up Button
               _isLoading

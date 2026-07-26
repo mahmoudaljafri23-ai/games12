@@ -41,6 +41,11 @@ class AuthService {
     return await _auth.signInWithCredential(credential);
   }
 
+  // 4. Password Reset Email
+  Future<void> sendPasswordResetEmail(String email) async {
+    await _auth.sendPasswordResetEmail(email: email);
+  }
+
   // Sign Out
   Future<void> signOut() async {
     await GoogleSignIn.instance.signOut();

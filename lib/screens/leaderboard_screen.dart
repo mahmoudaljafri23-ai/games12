@@ -12,7 +12,7 @@ class LeaderboardScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('نجم الشهر 🌟'),
+        title: const Text('المتصدرون 🏆'),
         centerTitle: true,
       ),
       body: StreamBuilder<QuerySnapshot>(

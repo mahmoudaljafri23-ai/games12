@@ -828,7 +828,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('لعبة الصورة الخفية'),
+        title: const Text('تحدي الملوك 👑'),
         leading: IconButton(
           icon: const Icon(Icons.people, color: Colors.deepPurpleAccent),
           onPressed: () {
@@ -871,7 +871,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             onPressed: _showAddWordDialog,
           ),
           IconButton(
-            icon: const Icon(Icons.star, color: Colors.amber),
+            icon: const Icon(Icons.leaderboard, color: Colors.amber),
+            tooltip: 'المتصدرون 🏆',
             onPressed: () {
               Navigator.push(
                 context,

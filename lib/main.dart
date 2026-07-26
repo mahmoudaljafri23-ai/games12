@@ -21,7 +21,7 @@ class VoiceDeceptionGameApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Voice Deception Game',
+      title: 'تحدي الملوك',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(

@@ -81,6 +81,8 @@ class _LoginScreenState extends State<LoginScreen> {
         });
       }
     }
+  }
+
   void _showForgotPasswordDialog() {
     final TextEditingController resetEmailController = TextEditingController(text: _emailController.text.trim());
 
@@ -172,6 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Icon(Icons.videogame_asset, size: 80, color: Colors.deepPurpleAccent),

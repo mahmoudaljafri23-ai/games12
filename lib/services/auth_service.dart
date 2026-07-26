@@ -25,21 +25,19 @@ class AuthService {
 
   // 3. Google Sign In
   Future<UserCredential?> signInWithGoogle() async {
-    // Initialize GoogleSignIn (Required in v7.0.0+)
-    await GoogleSignIn.instance.initialize();
+    const String webClientId = '242755232702-abaeb3c50c626aafa64fef.apps.googleusercontent.com';
 
-    // Trigger the authentication flow (Replacing signIn() in v7.0.0+)
+    await GoogleSignIn.instance.initialize(
+      serverClientId: webClientId,
+    );
+
     final GoogleSignInAccount googleUser = await GoogleSignIn.instance.authenticate();
-
-    // Obtain the auth details (Sync getter in v7.0.0+, no 'await' needed)
     final GoogleSignInAuthentication googleAuth = googleUser.authentication;
 
-    // Create a new credential using only idToken (accessToken is removed in v7.0.0+)
     final AuthCredential credential = GoogleAuthProvider.credential(
       idToken: googleAuth.idToken,
     );
 
-    // Once signed in, return the UserCredential
     return await _auth.signInWithCredential(credential);
   }
 

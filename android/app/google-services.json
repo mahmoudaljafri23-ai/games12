@@ -12,26 +12,20 @@
           "package_name": "com.tahadi.almolook"
         }
       },
-      "oauth_client": [],
-      "api_key": [
+      "oauth_client": [
         {
-          "current_key": "AIzaSyBQV82td7zSpw47E9XtgMbP0vY3kxgdGJA"
+          "client_id": "242755232702-abaeb3c50c626aafa64fef.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "242755232702-a17c1f857a84b060d725e1629c34f4d0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tahadi.almolook",
+            "certificate_hash": "a17c1f857a84b060d725e1629c34f4d0386e2a18"
+          }
         }
       ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:242755232702:android:dd0a31c2ffb68ec2a64fef",
-        "android_client_info": {
-          "package_name": "com.example.projectgoogl"
-        }
-      },
-      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyBQV82td7zSpw47E9XtgMbP0vY3kxgdGJA"

@@ -47,7 +47,7 @@ android {
         release {
             signingConfig = signingConfigs.getByName("release")
             ndk {
-                debugSymbolLevel = "NONE"
+                debugSymbolLevel = "SYMBOL_TABLE"
             }
         }
     }

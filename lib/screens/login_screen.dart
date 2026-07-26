@@ -102,8 +102,8 @@ class _LoginScreenState extends State<LoginScreen> {
               const Icon(Icons.videogame_asset, size: 80, color: Colors.deepPurpleAccent),
               const SizedBox(height: 20),
               const Text(
-                'لعبة الصورة الخفية',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                'تحدي الملوك 👑',
+                style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold, color: Colors.amberAccent),
               ),
               const SizedBox(height: 40),
               
@@ -174,11 +174,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ? const SizedBox()
                   : SizedBox(
                       width: double.infinity,
-                      child: OutlinedButton.icon(
+                      child: ElevatedButton.icon(
                         onPressed: _signInWithGoogle,
-                        icon: const Icon(Icons.g_mobiledata, size: 30),
-                        label: const Text('تسجيل الدخول بواسطة جوجل', style: TextStyle(fontSize: 16)),
-                        style: OutlinedButton.styleFrom(
+                        icon: const Icon(Icons.g_mobiledata, size: 36, color: Colors.white),
+                        label: const Text('تسجيل الدخول بواسطة جوجل 🌐', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red.shade700,
+                          foregroundColor: Colors.white,
                           padding: const EdgeInsets.symmetric(vertical: 15),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),

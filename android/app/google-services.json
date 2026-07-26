@@ -14,7 +14,7 @@
       },
       "oauth_client": [
         {
-          "client_id": "242755232702-abaeb3c50c626aafa64fef.apps.googleusercontent.com",
+          "client_id": "242755232702-8d2d16s5ic204mdrlo80smbpo4nislnl.apps.googleusercontent.com",
           "client_type": 3
         },
         {
@@ -24,6 +24,38 @@
             "package_name": "com.tahadi.almolook",
             "certificate_hash": "a17c1f857a84b060d725e1629c34f4d0386e2a18"
           }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQV82td7zSpw47E9XtgMbP0vY3kxgdGJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242755232702:android:dd0a31c2ffb68ec2a64fef",
+        "android_client_info": {
+          "package_name": "com.example.projectgoogl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242755232702-a940jl7b83r8t7elovlnj3rqdq2aupbj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.projectgoogl",
+            "certificate_hash": "332acee9b410e8db0eeed40d204311ec89d824b5"
+          }
+        },
+        {
+          "client_id": "242755232702-8d2d16s5ic204mdrlo80smbpo4nislnl.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
